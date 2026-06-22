@@ -11,7 +11,7 @@ class JourneySection extends StatefulWidget {
 }
 
 class _JourneySectionState extends State<JourneySection> {
-  int active = -1;
+  int active = 0;
 
   final items = [
     TimelineData(
