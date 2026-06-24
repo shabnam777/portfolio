@@ -85,9 +85,24 @@ class _ProjectCardState extends State<ProjectCard> {
               children: p.stack.map((e) => TechChip(tech: getTech(e))).toList(),
             ),
             const SizedBox(height: 18),
-            Align(
-                alignment: Alignment.centerRight,
-                child: InkWell(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                InkWell(
+                  onTap: () {
+                    if (p.appLink.isNotEmpty) {
+                      openLink(p.appLink);
+                    }
+                  },
+                  child: Text(
+                    'App Link  →  ${p.appLink}',
+                    style: TextStyle(
+                      color: p.accent,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+                InkWell(
                   onTap: () {
                     showModalBottomSheet(
                       context: context,
@@ -112,7 +127,9 @@ class _ProjectCardState extends State<ProjectCard> {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                ))
+                ),
+              ],
+            )
           ],
         ),
       ),

@@ -4,7 +4,7 @@ class ProjectModel {
   final String number;
   final String title;
   final String description;
-
+  final String appLink;
   final List<String> screenshots;
 
   final List<String> stack;
@@ -21,6 +21,7 @@ class ProjectModel {
     required this.number,
     required this.title,
     required this.description,
+    required this.appLink,
     required this.screenshots,
     required this.stack,
     required this.accent,

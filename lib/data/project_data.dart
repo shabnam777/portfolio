@@ -6,6 +6,7 @@ const projects = [
   ProjectModel(
       number: '01',
       title: 'Brand Analysis AI',
+      appLink: 'https://ai-brand-analyzer-rose.vercel.app/',
       description: 'Checks brand presence and sentiment across the web with LLM and custom crawlers.',
       screenshots: [
         'assets/projects/brand1.png',
@@ -40,6 +41,7 @@ PostgreSQL Database
   ProjectModel(
       number: '02',
       title: 'LifeDecide AI',
+      appLink: '',
       description: 'Next.js SaaS counseling platform with AI guidance, subscription system and LLM integration.',
       screenshots: [
         'assets/projects/lifedecide1.png',
@@ -74,6 +76,7 @@ Stripe Billing
   ProjectModel(
       number: '03',
       title: 'TobaccoCRM v3',
+      appLink: 'https://tobaccocrm.web.app/',
       description: 'Full stack CRM with Flutter mobile app, Node backend and AI validation pipeline.',
       screenshots: [
         'assets/projects/crm1.png',
@@ -114,7 +117,8 @@ MongoDB
       accent: Color(0xFFC25FD6),
       problem: 'E-commerce businesses needed automated growth workflows and real-time tracking.',
       solution: 'Built automation engine with background jobs and realtime data updates.',
-      architecture: '''
+      architecture: ''',
+   
 Flutter App
 
 ↓
@@ -130,5 +134,6 @@ BullMQ Workers
 Firebase
 ''',
       features: ['Automation workflows', 'Realtime tracking', 'Background jobs', 'Multi tenant system'],
-      challenges: ['Queue management', 'Realtime updates', 'Scaling workers']),
+      challenges: ['Queue management', 'Realtime updates', 'Scaling workers'],
+      appLink: ''),
 ];

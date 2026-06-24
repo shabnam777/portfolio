@@ -1,3 +1,5 @@
+import 'package:url_launcher/url_launcher.dart';
+
 import '../models/tech_model.dart';
 
 const List<TechStack> allTechs = [
@@ -42,5 +44,17 @@ TechStack getTech(String name) {
     return allTechs.firstWhere((e) => e.name == name);
   } catch (e) {
     return const TechStack('Tech', 'https://cdn.simpleicons.org/code');
+  }
+}
+
+Future<void> openLink(String url) async {
+  final Uri uri = Uri.parse(url);
+
+  if (!await launchUrl(
+    uri,
+    mode: LaunchMode.platformDefault,
+    webOnlyWindowName: '_blank', // New tab
+  )) {
+    throw Exception('Could not launch $url');
   }
 }
