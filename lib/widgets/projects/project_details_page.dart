@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:portfolio/widgets/projects/image_preview_modal.dart';
 
 import '../../app/theme.dart';
 import '../../data/tech_data.dart';
@@ -88,24 +91,49 @@ class ProjectCaseStudyModal extends StatelessWidget {
 
                 SizedBox(
                   height: 160,
-                  child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: project.screenshots.length,
-                    separatorBuilder: (_, __) => const SizedBox(width: 14),
-                    itemBuilder: (context, index) {
-                      return Container(
-                        width: 230,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(18), boxShadow: [BoxShadow(color: project.accent.withOpacity(.25), blurRadius: 20)]),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(18),
-                          child: Image.asset(
-                            project.screenshots[index],
-                            fit: BoxFit.cover,
+                  child: ScrollConfiguration(
+                    behavior: ScrollConfiguration.of(context).copyWith(
+                      dragDevices: {
+                        PointerDeviceKind.touch,
+                        PointerDeviceKind.mouse,
+                        PointerDeviceKind.trackpad,
+                        PointerDeviceKind.stylus,
+                      },
+                    ),
+                    child: ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: project.screenshots.length,
+                      separatorBuilder: (_, __) => const SizedBox(width: 14),
+                      itemBuilder: (context, index) {
+                        return Container(
+                          width: 230,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(18),
+                            boxShadow: [
+                              BoxShadow(color: project.accent.withOpacity(.25), blurRadius: 20),
+                            ],
                           ),
-                        ),
-                      );
-                    },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(18),
+                            child: GestureDetector(
+                              onTap: () {
+                                showDialog(
+                                  context: context,
+                                  barrierColor: Colors.black87,
+                                  builder: (_) => ImagePreviewModal(
+                                    imagePath: project.screenshots[index],
+                                  ),
+                                );
+                              },
+                              child: Image.asset(
+                                project.screenshots[index],
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ),
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/main.dart';
 
 import '../widgets/contact/contact_section.dart';
 import '../widgets/journey/journey_section.dart';
@@ -12,7 +13,7 @@ class PortfolioApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, theme: portfolioTheme(), home: const HomePage());
+    return MaterialApp(scrollBehavior: MyCustomScrollBehavior(), debugShowCheckedModeBanner: false, theme: portfolioTheme(), home: const HomePage());
   }
 }
 
@@ -49,38 +50,25 @@ class _HomePageState extends State<HomePage> {
               onHome: () {
                 controller.animateTo(0, duration: const Duration(milliseconds: 400), curve: Curves.easeInOut);
               },
-
               onJourney: () => scrollTo(journeyKey),
-
               onProjects: () => scrollTo(projectsKey),
-
               onSkills: () => scrollTo(skillsKey),
-
               onContact: () => scrollTo(contactKey),
             ),
-
             Expanded(
               child: SingleChildScrollView(
                 controller: controller,
-
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
                     children: [
                       KeyedSubtree(key: journeyKey, child: const JourneySection()),
-                  
                       const TechStrip(),
-                  
                       KeyedSubtree(key: projectsKey, child: const ShowcaseSection()),
-                  
                       KeyedSubtree(key: skillsKey, child: const SizedBox()),
-                  
                       KeyedSubtree(key: contactKey, child: const ContactSection()),
-                  
                       const SizedBox(height: 30),
-                  
                       const Text('© 2026 Shabnam — built with curiosity & caffeine', style: TextStyle(color: muted, fontSize: 12)),
-                  
                       const SizedBox(height: 20),
                     ],
                   ),

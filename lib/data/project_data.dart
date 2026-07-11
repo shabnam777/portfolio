@@ -9,9 +9,10 @@ const projects = [
       appLink: 'https://ai-brand-analyzer-rose.vercel.app/',
       description: 'Checks brand presence and sentiment across the web with LLM and custom crawlers.',
       screenshots: [
-        'assets/projects/brand1.png',
-        'assets/projects/brand2.png',
-        'assets/projects/brand3.png',
+        'assets/images/aeo_home.jpg',
+        'assets/images/competitors.jpg',
+        'assets/images/improvements.jpg',
+        'assets/images/analysis.jpg',
       ],
       stack: ['Flutter', 'LLM Integration', 'Groq', 'PostgreSQL'],
       accent: Color(0xFF3FE0C5),
