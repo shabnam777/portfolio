@@ -56,5 +56,6 @@ Future<void> openLink(String url) async {
     webOnlyWindowName: '_blank', // New tab
   )) {
     throw Exception('Could not launch $url');
+    // check
   }
 }
