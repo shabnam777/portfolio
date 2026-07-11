@@ -79,9 +79,9 @@ Stripe Billing
       appLink: 'https://tobaccocrm.web.app/',
       description: 'Full stack CRM with Flutter mobile app, Node backend and AI validation pipeline.',
       screenshots: [
-        'assets/projects/crm1.png',
-        'assets/projects/crm2.png',
-        'assets/projects/crm3.png',
+        'assets/images/leads.jpg',
+        'assets/images/analytics.jpg',
+        'assets/images/suggestions.jpg',
       ],
       stack: ['Flutter', 'Node.js', 'MongoDB', 'Express'],
       accent: Color(0xFF9B6BF0),
